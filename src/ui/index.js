@@ -11,7 +11,7 @@ toggleBtn.addEventListener('click', () => {
 });
 
 const updateUI = () => {
-    buttonState
+    load1
         ? toggleBtn.classList.add('on')
         : toggleBtn.classList.remove('on');
     toggleBtn.innerText = load1 ? 'Turn off' : 'Turn on';
