@@ -2,23 +2,23 @@ const socket = io();
 
 const toggleBtn = document.getElementById('toggleBtn');
 
-let buttonState = false;
+let load1 = false;
 
 toggleBtn.addEventListener('click', () => {
-    buttonState = !buttonState;
+    load1 = !load1;
     updateUI();
-    socket.emit('buttonState', buttonState);
+    socket.emit('load1', load1);
 });
 
 const updateUI = () => {
     buttonState
         ? toggleBtn.classList.add('on')
         : toggleBtn.classList.remove('on');
-    toggleBtn.innerText = buttonState ? 'Turn off' : 'Turn on';
+    toggleBtn.innerText = load1 ? 'Turn off' : 'Turn on';
 };
 
-socket.on('buttonState', state => {
+socket.on('load1', state => {
     console.log('updated state', state);
-    buttonState = state;
+    load1 = state;
     updateUI();
 });
