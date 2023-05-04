@@ -11,6 +11,7 @@ const io = new Server(httpServer, { cors: { origin: '*' } });
 app.use(express.static('src/ui'));
 
 let load1 = false;
+let buttonState = false;
 let value1 = 0
 let value2 = 1
 let value3 = 0
@@ -28,11 +29,11 @@ io.on('connection', socket => {
         socket.broadcast.emit('load1', value1, value2, value3, value4);
     });
 
-    // socket.on('buttonState', value => {
-    //     console.log('buttonState:', value);
-    //     buttonState = value;
-    //     socket.broadcast.emit('buttonState', value);
-    // });
+    socket.on('buttonState', value => {
+        console.log('buttonState:', value);
+        buttonState = value;
+        socket.broadcast.emit('buttonState', value);
+    });
 });
 
 httpServer.listen(PORT, () => {
