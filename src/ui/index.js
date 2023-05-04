@@ -1,24 +1,36 @@
 const socket = io();
 
-const toggleBtn = document.getElementById('toggleBtn');
+const toggleBtns = document.querySelectorAll('.toggleBtn');
+let data = {
+    "BUILTIN": false,
+    "LED": false,
+}
+toggleBtns.forEach(btn => {
+    const id = (btn.getAttribute("data-id"));
+    socket.on(id, value => {
+        data[id] = value;
+        updateUI(btn, id);
+    });
 
-let load1 = false;
+    btn.addEventListener('click', (e) => {
+        data[id] = !data[id];
+        updateUI(btn, id)
+        socket.emit(id, data[id]);
+    })
+})
 
-toggleBtn.addEventListener('click', () => {
-    load1 = !load1;
-    updateUI();
-    socket.emit('load1', load1);
-});
 
-const updateUI = () => {
-    load1
-        ? toggleBtn.classList.add('on')
-        : toggleBtn.classList.remove('on');
-    toggleBtn.innerText = load1 ? 'Turn off' : 'Turn on';
+const updateUI = (btn, id) => {
+    data[id]
+        ? btn.classList.add('on')
+        : btn.classList.remove('on');
+    btn.innerText = data[id] ? 'Turn off' : 'Turn on';
 };
 
-socket.on('load1', state => {
+socket.on('initial', state => {
     console.log('updated state', state);
-    load1 = state;
-    updateUI();
+    data = state;
+    toggleBtns.forEach(btn => {
+        updateUI(btn, btn.getAttribute("data-id"));
+    })
 });
