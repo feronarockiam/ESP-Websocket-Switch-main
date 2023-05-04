@@ -22,9 +22,10 @@ body {
     justify-content: center;
 }
 
-#toggleBtn {
+.toggleBtn {
     height: 10rem;
     width: 10rem;
+    margin: 0 1em;
     border-radius: 10px;
     font-size: 1.5rem;
     cursor: pointer;
@@ -33,15 +34,15 @@ body {
     background-color: hotpink;
 }
 
-#toggleBtn:hover {
+.toggleBtn:hover {
     transform: scale(1.1);
     box-shadow: hotpink 0px 14px 28px;
 }
 
-#toggleBtn.on {
+.toggleBtn.on {
     background-color: mediumaquamarine;
 }
 
-#toggleBtn.on:hover {
+.toggleBtn.on:hover {
     box-shadow: mediumaquamarine 0px 14px 28px;
 }
