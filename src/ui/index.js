@@ -1,6 +1,7 @@
 const socket = io();
 
 const toggleBtns = document.querySelectorAll('.toggleBtn');
+const disco = document.querySelector('#disco');
 let data = {
     "BUILTIN": false,
     "LED": false,
@@ -22,6 +23,16 @@ toggleBtns.forEach(btn => {
     })
 })
 
+disco.addEventListener('click', (e) => {
+    toggleBtns.forEach(btn => {
+        const id = (btn.getAttribute("data-id"));
+        setInterval(() => {
+            data[id] = !data[id];
+            updateUI(btn, id)
+            socket.emit(id, data[id]);
+        }, 800);
+    })
+})
 
 const updateUI = (btn, id) => {
     data[id]
