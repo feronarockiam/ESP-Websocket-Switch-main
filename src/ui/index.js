@@ -34,8 +34,8 @@ disco.addEventListener('click', (e) => {
         }, 800);
     })
 })
-socket.on("SENSOR", ({ value }) => {
-    console.log(value);
+socket.on("SENSOR", (data) => {
+    console.log(data);
     sensors.innerHTML = `Sensor ${value}`;
 })
 const updateUI = (btn, id) => {
