@@ -4,6 +4,9 @@ const toggleBtns = document.querySelectorAll('.toggleBtn');
 let data = {
     "BUILTIN": false,
     "LED": false,
+    "LED1": false,
+    "LED2": false,
+    "SENSOR": 25
 }
 toggleBtns.forEach(btn => {
     const id = (btn.getAttribute("data-id"));
@@ -24,7 +27,7 @@ const updateUI = (btn, id) => {
     data[id]
         ? btn.classList.add('on')
         : btn.classList.remove('on');
-    btn.innerText = data[id] ? 'Turn off' : 'Turn on';
+    btn.innerHTML = data[id] ? `${id} <br> Turn off` : `${id} <br> Turn on`;
 };
 
 socket.on('initial', state => {

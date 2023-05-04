@@ -1,48 +1,49 @@
 *,
 *::after,
 *::before {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    outline: none;
-    background: none;
-    border: none;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  outline: none;
+  background: none;
+  border: none;
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .app {
-    height: 100vh;
-    padding: 1rem;
-    background-color: papayawhip;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  height: 100vh;
+  padding: 1rem 2em;
+  background-color: papayawhip;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  place-content: center;
+  gap: 1em;
 }
-
+.app > p {
+  grid-column: 1/4;
+}
 .toggleBtn {
-    height: 10rem;
-    width: 10rem;
-    margin: 0 1em;
-    border-radius: 10px;
-    font-size: 1.5rem;
-    cursor: pointer;
-    transition: all 0.2s;
-    color: #fff;
-    background-color: hotpink;
+  border-radius: 10px;
+  font-size: 1.5rem;
+  padding: 2em;
+  cursor: pointer;
+  transition: all 0.2s;
+  color: #fff;
+  background-color: hotpink;
 }
 
 .toggleBtn:hover {
-    transform: scale(1.1);
-    box-shadow: hotpink 0px 14px 28px;
+  transform: scale(1.1);
+  box-shadow: hotpink 0px 14px 28px;
 }
 
 .toggleBtn.on {
-    background-color: mediumaquamarine;
+  background-color: mediumaquamarine;
 }
 
 .toggleBtn.on:hover {
-    box-shadow: mediumaquamarine 0px 14px 28px;
+  box-shadow: mediumaquamarine 0px 14px 28px;
 }

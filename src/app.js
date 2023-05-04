@@ -9,10 +9,13 @@ const httpServer = http.createServer(app);
 const io = new Server(httpServer, { cors: { origin: '*' } });
 
 app.use(express.static('src/ui'));
-const ids = ["BUILTIN", "LED"];
+const ids = ["BUILTIN", "LED1", "LED2", "LED3"];
 const data = {
-    "BUILTIN": true,
-    "LED": false,
+    "BUILTIN": false,
+    "LED1": false,
+    "LED2": false,
+    "LED3": false,
+    "LED4": false,
 }
 io.on('connection', socket => {
     console.log('New Connection');

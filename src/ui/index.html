@@ -1,23 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport"
-        content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta
+      name="viewport"
+      content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
 
     <title>ESP Socket</title>
     <link rel="stylesheet" href="/style.css" />
     <script src="/socket.io/socket.io.js"></script>
-</head>
+  </head>
 
-<body>
+  <body>
     <div class="app">
-        <button data-id="BUILTIN" class="toggleBtn">BUILTIN</button>
-        <button data-id="LED" class="toggleBtn">LED</button>
+      <p data-id="sensor" class="devices">Sensor</p>
+      <button data-id="BUILTIN" class="toggleBtn">BUILTIN</button>
+      <button data-id="LED1" class="toggleBtn">LED</button>
+      <button data-id="LED2" class="toggleBtn">LED1</button>
+      <button data-id="LED3" class="toggleBtn">LED2</button>
+      <button data-id="LED4" class="toggleBtn">LED3</button>
     </div>
     <script src="/index.js"></script>
-</body>
-
+  </body>
 </html>
