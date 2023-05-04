@@ -34,7 +34,7 @@ disco.addEventListener('click', (e) => {
         }, 800);
     })
 })
-socket.on("efe", (data) => {
+socket.on("SENSOR", (data) => {
     console.log(data);
     sensors.innerHTML = `Sensor ${data}`;
 })

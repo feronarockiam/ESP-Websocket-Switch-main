@@ -21,7 +21,14 @@ io.on('connection', socket => {
     console.log('New Connection');
 
     io.to(socket.id).emit('initial', data);
-
+    socket.on(socket.id, (e) => {
+        console.log(e);
+        socket.broadcast.emit("SENSOR", e)
+    })
+    socket.on("SENSOR", (e) => {
+        console.log(e);
+        socket.broadcast.emit("SENSOR", e)
+    })
     socket.on('disconnect', () => {
         console.log('Disconnected');
     });
