@@ -1,6 +1,7 @@
 const socket = io();
 
 const toggleBtns = document.querySelectorAll('.toggleBtn');
+const sensors = document.querySelector('.devices');
 const disco = document.querySelector('#disco');
 let data = {
     "BUILTIN": false,
@@ -33,7 +34,10 @@ disco.addEventListener('click', (e) => {
         }, 800);
     })
 })
-
+socket.on("efe", (data) => {
+    console.log(data);
+    sensors.innerHTML = `Sensor ${data}`;
+})
 const updateUI = (btn, id) => {
     data[id]
         ? btn.classList.add('on')
